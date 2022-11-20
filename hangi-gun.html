@@ -12,60 +12,7 @@
       crossorigin="anonymous"
     />
     <title>Hangi-gun</title>
-    <style>
-      body {
-        text-align: center;
-        margin: 40px;
-        color: #143a89;
-        font-weight: bold;
-      }
-      h1 {
-        color: #547ff1;
-        letter-spacing: 0.1em;
-        font-weight: bolder;
-      }
-
-      h5 {
-        font-weight: 200;
-      }
-      hr {
-        max-width: 440px;
-        margin: 0 auto;
-        padding-bottom: 20px;
-      }
-      .now {
-        color: #53a3ba;
-        font-weight: 200;
-      }
-      .input {
-        padding: 12px 30px;
-        border-radius: 3px;
-        font-size: 20px;
-        border: 1px solid white;
-        color: #53a3ba;
-      }
-      .submit {
-        padding: 12px 30px;
-        border-radius: 3px;
-        font-size: 20px;
-        color: white;
-        border: 1px solid #53a3ba;
-        background-color: #53a3ba;
-      }
-      .box {
-        padding: 15px 30px;
-        max-width: 600px;
-        margin: 0 auto;
-        border-radius: 10px;
-        background-color: #c6edf8;
-        margin-bottom: 20px;
-      }
-      .newDate {
-        margin-top: 30px;
-        color: #53a3ba;
-        font-weight: 200;
-      }
-    </style>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <h1>ZAMAN MAKİNESİ</h1>
@@ -103,84 +50,6 @@
       <h4 class="newDate"></h4>
       <h4 class="newDateDay"></h4>
     </div>
-    <script>
-      let now = new Date();
-      let today = document.querySelector(".today");
-      let time = document.querySelector(".time");
-      let current = document.querySelector(".current");
-      let year = now.getFullYear();
-      let dates = now.getDate();
-      let days = [
-        "Pazar",
-        "Pazartesi",
-        "Salı",
-        "Çarşamba",
-        "Perşembe",
-        "Cuma",
-        "Cumartesi",
-      ];
-      let months = [
-        "Ocak",
-        "Şubat",
-        "Mart",
-        "Nisan",
-        "Mayıs",
-        "Haziran",
-        "Temmuz",
-        "Ağustos",
-        "Eylül",
-        "Ekim",
-        "Kasım",
-        "Aralık",
-      ];
-      let day = days[now.getDay()];
-      let month = months[now.getMonth()];
-      let minutes = now.getMinutes();
-      let hours = now.getHours();
-      if (minutes < 10) {
-        minutes = `0${minutes}`;
-      }
-      if (hours < 10) {
-        hours = `0${hours}`;
-      }
-      today.innerHTML = `${dates} ${month} ${year}, ${day} `;
-      time.innerHTML = `${hours}:${minutes}`;
-
-      function showDate(date) {
-        let newDate = document.querySelector(".newDate");
-        let newDateDay = document.querySelector(".newDateDay");
-        let year = date.getFullYear();
-        let dates = date.getDate();
-        let day = days[date.getDay()];
-        let month = months[date.getMonth()];
-        let minutes = date.getMinutes();
-        let hours = date.getHours();
-        if (minutes < 10) {
-          minutes = `0${minutes}`;
-        }
-        if (hours < 10) {
-          hours = `0${hours}`;
-        }
-
-        newDate.innerHTML = `${dates} ${month} ${year} tarihinde günlerden:`;
-        newDateDay.innerHTML = `${day}`;
-      }
-      function submitDate(event) {
-        event.preventDefault();
-        let inputDate = document.querySelector("#inputDate");
-        let date = new Date(inputDate.value);
-        showDate(date);
-      }
-      // function submitDate2(event) {
-      //   event.preventDefault();
-      //   let cal = document.querySelector("#cal");
-      //   let date = new Date(cal.value);
-      //   // console.log(date.getDate());
-      //   showDate(date);
-      // }
-      let form = document.querySelector("form");
-      // form.addEventListener("submit", submitDate2);
-      form.addEventListener("submit", submitDate);
-    </script>
+    <script src="/src/app.js"></script>
   </body>
 </html>
